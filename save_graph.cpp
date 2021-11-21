@@ -2,8 +2,6 @@
 
 void write_tree_graphviz(FILE *file, tree *graph);
 
-
-
 void dump_tree(const char* database_file_name, tree *graph)
 {
     assert(graph != nullptr);
@@ -29,10 +27,6 @@ void write_tree(FILE *database_file, node *current_node)
     assert(current_node != nullptr);
     
     write_node(database_file, current_node);
-
-    //fseek(file, -1L, SEEK_END);
-
-    //fprintf(database_file, "{\"%s\"\n", current_node->value);
 
     if (current_node->left_node != nullptr)    
     {
@@ -103,9 +97,6 @@ void write_tree_graphviz(FILE *graphviz_file, tree *graph)
 #define FWRITE_CHILD(child_type)                                                                     \
     fprintf(graphviz_file, "\"%s\"->\"%s\";\n", current_node->value, current_node->child_type##_node->value);
 
-
-//TODO: написать функцию для printf digraph, то есть функция, которая первоначально запускается перед дозаписыванием, fseek(file, -1, SET_END), ftell
-//fclose везде 
 
 FILE *create_graphviz_file(const char *graphviz_file_name)
 {
