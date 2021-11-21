@@ -5,8 +5,9 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Sun Nov 21 00:37:30 2021
+# Make data base, printed on Sun Nov 21 17:35:13 2021
 
 # Variables
 
@@ -125,7 +126,8 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\Graphviz\bin;C:\Users\levce\AppData\Local\Microsoft\WindowsApps;C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin;C:\Users\levce\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\levce\AppData\Local\GitHubDesktop\bin
+PATH = C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\Graphviz\bin;C:\Users\levce\AppData\Local\Microsoft\WindowsApps;C:\ 
+Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin;C:\Users\levce\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\levce\AppData\Local\GitHubDesktop\bin
 # environment
 COMPUTERNAME = MSI
 # default
@@ -209,7 +211,7 @@ CC = g++
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
 # variable set hash-table stats:
-# Load=99/1024=10%, Rehash=0, Collisions=9/155=6%
+# Load=99/1024=10%, Rehash=0, Collisions=9/144=6%
 
 # Pattern-specific Variable Values
 
@@ -217,9 +219,9 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/levce/CLionProjects/Akinator, mtime 1637444222): 29 files, no impossibilities.
+# . (key c:/Users/levce/CLionProjects/Akinator, mtime 1637504457): 26 files, no impossibilities.
 
-# 29 files, no impossibilities in 1 directories.
+# 26 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -229,31 +231,28 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
 
 # Not a target:
 default_values.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-21 00:32:04
-#  File has been updated.
-#  Successfully updated.
-
-compare_objects.exe: obj/compare_objects.o obj/akinator.o obj/stack.o obj/open.o obj/save_graph.o obj/get_characterist.o obj/default_values.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-21 00:37:02
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+compare_objects.exe:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-21 17:20:57
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 14):
-	$(CC) -g      	  $(BuildF)compare_objects.o $(BuildF)akinator.o $(BuildF)stack.o $(BuildF)open.o $(BuildF)save_graph.o $(BuildF)get_characterist.o $(BuildF)default_values.o -o compare_objects.exe
 
 obj/default_values.o: default_values.cpp | obj
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-21 00:37:02
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 23):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 17):
 	$(CC) -c $(CFLAGS) default_values.cpp -o $(BuildF)default_values.o
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-21 00:36:57
+#  Last modified 2021-11-21 17:35:08
 #  File has been updated.
 #  Successfully updated.
 
@@ -261,74 +260,67 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 47):
+#  recipe to execute (from 'Makefile', line 41):
 	del /q /s obj
 
 obj/play.o: play.cpp | obj
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-20 21:32:53
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 26):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 20):
 	$(CC) -c $(CFLAGS) play.cpp -o $(BuildF)play.o
 
-find_object.exe: obj/find_object.o obj/akinator.o obj/stack.o obj/open.o obj/save_graph.o obj/get_characterist.o obj/default_values.o
-#  Implicit rule search has not been done.
-#  Last modified 2021-11-21 00:37:02
+# Not a target:
+find_object.exe:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-21 17:20:57
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 11):
-	$(CC) -g      $(BuildF)find_object.o $(BuildF)akinator.o $(BuildF)stack.o $(BuildF)open.o $(BuildF)save_graph.o $(BuildF)get_characterist.o $(BuildF)default_values.o -o find_object.exe
 
 # Not a target:
 stack.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-19 01:53:33
-#  File has been updated.
-#  Successfully updated.
-
-obj:
-#  Implicit rule search has not been done.
-#  Last modified 2021-11-21 00:37:02
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 44):
-	mkdir $@
-
-# Not a target:
-open.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-21 00:22:44
-#  File has been updated.
-#  Successfully updated.
-
-obj/find_object.o: find_object.cpp | obj
-#  Implicit rule search has not been done.
-#  Last modified 2021-11-20 21:53:43
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 20):
-	$(CC) -c $(CFLAGS) find_object.cpp -o $(BuildF)find_object.o
-
-# Not a target:
-play.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 21:23:52
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-.DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
+obj:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	mkdir $@
+
+# Not a target:
+open.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/find_object.o: find_object.cpp | obj
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 14):
+	$(CC) -c $(CFLAGS) find_object.cpp -o $(BuildF)find_object.o
+
+# Not a target:
+play.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification 
+ time never checked.
+#  File has not been updated.
+
 obj/akinator.o: akinator.cpp | obj
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-21 00:35:25
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 29):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 23):
 	$(CC) -c $(CFLAGS) akinator.cpp -o $(BuildF)akinator.o
 
 all: play.exe find_object.exe compare_objects.exe
@@ -340,102 +332,97 @@ all: play.exe find_object.exe compare_objects.exe
 
 # Not a target:
 get_characterist.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-21 00:20:51
-#  File has been updated.
-#  Successfully updated.
-
-play.exe: obj/play.o obj/akinator.o obj/stack.o obj/open.o obj/save_graph.o obj/default_values.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-21 00:37:02
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+play.exe:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-21 17:20:57
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 8):
-	$(CC) -g $(BuildF)play.o $(BuildF)akinator.o $(BuildF)stack.o $(BuildF)open.o $(BuildF)save_graph.o $(BuildF)default_values.o -o play.exe
 
 # Not a target:
 compare_objects.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 21:52:00
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 obj/get_characterist.o: get_characterist.cpp | obj
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-21 00:37:02
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
 	$(CC) -c $(CFLAGS) get_characterist.cpp -o $(BuildF)get_characterist.o
 
 obj/open.o: open.cpp | obj
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-21 00:35:26
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 35):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 29):
 	$(CC) -c $(CFLAGS) open.cpp -o $(BuildF)open.o
 
 obj/save_graph.o: save_graph.cpp | obj
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-21 00:03:53
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 38):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 32):
 	$(CC) -c $(CFLAGS) save_graph.cpp -o $(BuildF)save_graph.o
+
+akinator.exe: obj/play.o obj/akinator.o obj/stack.o obj/open.o obj/save_graph.o obj/default_values.o obj/find_object.o obj/get_characterist.o obj/compare_objects.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 8):
+				$(CC) -g $(BuildF)play.o $(BuildF)akinator.o $(BuildF)stack.o $(BuildF)open.o $(BuildF)save_graph.o $(BuildF)default_values.o $(BuildF)find_object.o $(BuildF)get_characterist.o $(BuildF)compare_objects.o -o akinator.exe
 
 # Not a target:
 find_object.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 21:52:46
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 save_graph.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-21 00:03:50
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 akinator.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-21 00:31:44
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 obj/stack.o: stack.cpp | obj
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-19 14:58:42
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 32):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 26):
 	$(CC) -c $(CFLAGS) stack.cpp -o $(BuildF)stack.o
 
 obj/compare_objects.o: compare_objects.cpp | obj
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-20 21:53:43
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 17):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 11):
 	$(CC) -c $(CFLAGS) compare_objects.cpp -o $(BuildF)compare_objects.o
 
 # files hash-table stats:
-# Load=27/1024=3%, Rehash=0, Collisions=2/92=2%
+# Load=28/1024=3%, Rehash=0, Collisions=2/79=3%
 # VPATH Search Paths
 
-# No ' 
-vpath' search paths.
+# No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 42 / storage = 506 B / avg = 12 B
-# current buf: size = 8174 B / used = 506 B / count = 42 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 40 / storage = 485 B / avg = 12 B
+# current buf: size = 8174 B / used = 485 B / count = 40 / avg = 12 B
 
-# strcache performance: lookups = 107 / hit rate = 60%
+# strcache performance: lookups = 89 / hit rate = 55%
 # hash-table stats:
-# Load=42/8192=1%, Rehash=0, Collisions=0/107=0%
-# Finished Make data base on Sun Nov 21 00:37:30 2021
+# Load=40/8192=0%, Rehash=0, Collisions=0/89=0%
+# Finished Make data base on Sun Nov 21 17:35:13 2021
 
  

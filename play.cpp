@@ -1,9 +1,9 @@
 #include "akinator.h"
 
-const char *default_database_file_name   = "tree.database";
-const char *default_save_file_name       = "save.database";
-const char *default_graph_file_name      = "graph.dot";
-const char *default_png_file_name        = "graph.png";
+const char *default_database_file_name   = "database_files/tree.database";
+const char *default_save_file_name       = "database_files/save.database";
+const char *default_graph_file_name      = "database_files/graph.dot";
+const char *default_png_file_name        = "database_files/graph.png";
 
 void play (const char *database_file_name, const char *save_file_name, const char *graph_file_name, const char *png_file_name);
 
@@ -18,9 +18,9 @@ void play (const char *database_file_name, const char *save_file_name, const cha
 
     play_mode(&graph);
 
-    write_tree(save_file_name, &graph);
+    dump_tree(save_file_name, &graph);
     
-    write_tree_graphviz(graph_file_name, &graph);
+    dump_tree_graphviz(graph_file_name, &graph);
 
     create_png(graph_file_name, png_file_name);
 

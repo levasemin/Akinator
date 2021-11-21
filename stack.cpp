@@ -1,6 +1,6 @@
 #include "stack.h"
 //file name for dump error
-const char* DUMP_FILE_NAME = "log.txt";
+const char* DUMP_FILE_NAME = "log/stack_log.txt";
 
 #ifdef STACK_DEBUG
 
@@ -280,9 +280,9 @@ void dump(Stack *stack, const char* error_file_name, const char* error_func_name
                 *(unsigned long long *)(stack->data + stack_canary_size + sizeof(stack_type) * stack->capacity));
         fprintf(file, "excepted stack hash          %Ilu;           real stack hash:        %Ilu\n", stack->stack_hash, calculate_stack_hash(stack));
 
-        fprintf(file, "stack size:    %Ilu\n", stack->size);
-        fprintf(file, "capacity size: %Ilu\n", stack->capacity);
-        fprintf(file, "stack states   %Illu\n", stack->states);
+        fprintf(file, "stack size:    %zu\n", stack->size);
+        fprintf(file, "capacity size: %zu\n", stack->capacity);
+        fprintf(file, "stack states   %zu\n", stack->states);
         fprintf(file, "Stack elements:\n");
 
         for (size_t i = 0; i < stack->size; ++i)

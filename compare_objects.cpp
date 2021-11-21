@@ -1,8 +1,8 @@
 #include "akinator.h"
 
-const char *default_database_file_name   = "tree.database";
-const char *default_graph_file_name      = "graph.dot";
-const char *default_png_file_name        = "graph.png";
+const char *default_database_file_name   = "database_files/tree.database";
+const char *default_graph_file_name      = "database_files/graph.dot";
+const char *default_png_file_name        = "database_files/graph.png";
 
 bool compare_characteristcs(Stack *charactistics_object1, Stack *charactistics_object2);
 
@@ -59,18 +59,19 @@ void compare_objects(char *object1, char *object2, const char *database_file_nam
         printf("Characteristics1 were not comepred");
     }
 
+    dump_tree_graphviz(graph_file_name, &graph);
+
     char color_object1[] = "yellow";
     
-    fill_characterist_create_png(graph_file_name, png_file_name, &characteristics_object1, color_object1);
-
-
+    dump_tree_graphviz(graph_file_name, &graph, &characteristics_object1, color_object1);
+    
     char color_object2[] = "red";
 
-    fill_characterist_create_png(graph_file_name, png_file_name, &characteristics_object2, color_object2);
+    fill_object_graphviz(graph_file_name, &characteristics_object2, color_object2);
 
     char color_union[] = "green";
 
-    fill_characterist_create_png(graph_file_name, png_file_name, &characteristics_union, color_union);
+    fill_object_graphviz(graph_file_name, &characteristics_union, color_union);
 
     create_png(graph_file_name, png_file_name);
 

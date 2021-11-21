@@ -125,6 +125,4 @@ void get_tree(const char* database_file_name, tree *my_tree)
         //DEBUG_GRAPHVIZ("graph.dot", my_tree);
 
     }
-
-    write_tree_graphviz("graph.dot", my_tree);   
 }
