@@ -18,4 +18,7 @@ digraph G{
 "want sleep"->"Bogdanow";
 "Stas";
 "Bogdanow";
+"Pushkin"[color="yellow" style=filled];
+"Is writer?"[color="yellow" style=filled];
+"Is humanities?"[color="yellow" style=filled];
 }
