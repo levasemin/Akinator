@@ -18,7 +18,14 @@ digraph G{
 "want sleep"->"Bogdanow";
 "Stas";
 "Bogdanow";
-"Pushkin"[color="yellow" style=filled];
-"Is writer?"[color="yellow" style=filled];
+"Bogdanow"[color="yellow" style=filled];
+"want sleep"[color="yellow" style=filled];
+"He shocks?"[color="yellow" style=filled];
+"Calculus teacher?"[color="yellow" style=filled];
 "Is humanities?"[color="yellow" style=filled];
+"misha"[color="red" style=filled];
+"not genius"[color="red" style=filled];
+"Is writer?"[color="red" style=filled];
+"Is humanities?"[color="red" style=filled];
+"Is humanities?"[color="green" style=filled];
 }
