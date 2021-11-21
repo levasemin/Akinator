@@ -1,6 +1,5 @@
 make.exe --dry-run --keep-going --print-directory
 make: Entering directory 'c:/Users/levce/CLionProjects/Akinator'
-g++ -c -g -std=c++14 -Wall -Wextra -Weffc++ -Waggressive-loop-optimizations -Wc++0x-compat -Wc++11-compat -Wc++14-compat -Wcast-align -Wcast-qual -Wchar-subscripts -Wconditionally-supported -Wconversion -Wctor-dtor-privacy -Wempty-body -Wfloat-equal -Wformat-nonliteral -Wformat-security -Wformat-signedness -Wformat=2 -Winline -Wlarger-than=8192 -Wlogical-op -Wmissing-declarations -Wnon-virtual-dtor -Wopenmp-simd -Woverloaded-virtual -Wpacked -Wpointer-arith -Wredundant-decls -Wshadow -Wsign-conversion -Wsign-promo -Wstack-usage=8192 -Wstrict-null-sentinel -Wstrict-overflow=2 -Wsuggest-final-methods -Wsuggest-final-types -Wsuggest-override -Wswitch-default -Wswitch-enum -Wsync-nand -Wundef -Wunreachable-code -Wunused -Wuseless-cast -Wvariadic-macros -Wno-literal-suffix -Wno-missing-field-initializers -Wno-narrowing -Wno-old-style-cast -Wno-varargs get_characterist.cpp -o obj/get_characterist.o
-g++ -g obj/main.o obj/akinator.o obj/stack.o obj/open.o obj/dump_graph.o obj/get_characterist.o -o main.exe
+make: Nothing to be done for 'all'.
 make: Leaving directory 'c:/Users/levce/CLionProjects/Akinator'
  

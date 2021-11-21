@@ -1,3 +1,31 @@
 digraph G{
-"default";
+"Is humanities?"->"Is writer?";
+"Is humanities?"->"Calculus teacher?";
+"Is writer?"->"Pushkin";
+"Is writer?"->"not genius";
+"Pushkin";
+"not genius"->"misha";
+"not genius"->"Beethoven";
+"misha";
+"Beethoven";
+"Calculus teacher?"->"Lukashow";
+"Calculus teacher?"->"He shocks?";
+"Lukashow";
+"He shocks?"->"Dashkow";
+"He shocks?"->"want sleep";
+"Dashkow";
+"want sleep"->"Stas";
+"want sleep"->"Bogdanow";
+"Stas";
+"Bogdanow";
+"Bogdanow"[color="yellow" style=filled];
+"want sleep"[color="yellow" style=filled];
+"He shocks?"[color="yellow" style=filled];
+"Calculus teacher?"[color="yellow" style=filled];
+"Is humanities?"[color="yellow" style=filled];
+"misha"[color="red" style=filled];
+"not genius"[color="red" style=filled];
+"Is writer?"[color="red" style=filled];
+"Is humanities?"[color="red" style=filled];
+"Is humanities?"[color="green" style=filled];
 }

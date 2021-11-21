@@ -1,31 +1,37 @@
 #include "akinator.h"
 
-bool find_object(type_value_node value, Stack *stack);
+bool find_object(char *value, Stack *stack);
 
-void add_charactist(tree *my_tree, node **current_node, type_value_node characterist, type_value_node object);
+void add_charactist(tree *graph, node **current_node, char *characterist, char *object);
 
-void destructer_node(node *selected_note);
+bool construct_node(node **new_node, char *value);
 
-void wrong_answer(tree *my_tree, node **current_node);
+void destruct_node(node *selected_note);
 
-void get_way(tree *my_tree, type_value_node value);
+void wrong_answer(tree *graph, node **current_node);
+
+void get_way(tree *graph, char *value);
 
 
-void constuct_tree(tree *tree)
+void construct_tree(tree *tree)
 {
     assert(tree != nullptr);
-
-    type_value_node value = "default";
     
-    construct_node(&tree->root_node, value);
+    construct_node(&tree->root_node, DEFAULT_VALUE);
 
     tree->count_nodes = 1;
 }
 
 
-bool construct_node(node **new_node, type_value_node value)
+bool construct_node(node **new_node, char *value)
 {
+    assert(new_node != nullptr);
+    assert(value    != nullptr);
+
     *new_node = (node *)calloc(1, sizeof(node));
+    
+    assert(*new_node != nullptr);
+
     memcpy((*new_node)->value, value, MAX_SIZE_CHARACTER); 
 
     (*new_node)->left_node      = nullptr;
@@ -35,9 +41,12 @@ bool construct_node(node **new_node, type_value_node value)
 }
 
 
-void add_charactist(tree *my_tree, node **current_node, type_value_node characterist, type_value_node object)
+void add_charactist(tree *graph, node **current_node, char *characterist, char *object)
 {
-    assert(my_tree != nullptr);
+    assert(graph      != nullptr);
+    assert(current_node != nullptr);
+    assert(characterist != nullptr);
+    assert(object       != nullptr);
 
     node *old_node = nullptr;
 
@@ -55,25 +64,27 @@ void add_charactist(tree *my_tree, node **current_node, type_value_node characte
     construct_node(&new_node, object);
 
     (*current_node)->left_node = new_node;
+    
+    graph -> count_nodes += 1;
 }
 
 
-bool play_mode(const char* save_file_name, tree *my_tree)
+bool play_mode(tree *graph)
 {
-    assert(my_tree != nullptr);
+    assert(graph != nullptr);
 
-    node *current_node = my_tree->root_node;
+    node *current_node = graph->root_node;
 
     bool guessed = false;
 
     while (current_node->left_node != nullptr && current_node->right_node != nullptr)
     {
-        char answer[] = "yes";
+        char answer[20] = "yes";
         
         printf("%s\n", current_node->value);
         printf("write yes/no\n");
 
-        scanf("%s", answer);
+        scanf("%20s", answer);
 
         if (strcmp(answer, "yes") == 0)
         {
@@ -86,7 +97,7 @@ bool play_mode(const char* save_file_name, tree *my_tree)
         }
     }
 
-    printf("Your object is \n %s\n", current_node->value);
+    printf("Your object is \n%s\n", current_node->value);
     printf("write yes/no \n");
 
     char answer[MAX_SIZE_CHARACTER + 1] = {};
@@ -102,17 +113,14 @@ bool play_mode(const char* save_file_name, tree *my_tree)
     {
         guessed = false;
         
-        wrong_answer(my_tree, &current_node);
-        
-        write_tree(save_file_name, my_tree);
-        write_tree_graphviz("graph.dot", my_tree);
+        wrong_answer(graph, &current_node);
     }
 
     return guessed;
 }
 
 
-void wrong_answer(tree *my_tree, node **current_node)
+void wrong_answer(tree *graph, node **current_node)
 {
     printf("What it was? \n");
 
@@ -126,11 +134,40 @@ void wrong_answer(tree *my_tree, node **current_node)
 
     scanf(" %[^\n]s ", characterist);
 
-    add_charactist(my_tree, current_node, characterist, object);
+    add_charactist(graph, current_node, characterist, object);
 }
 
+void destruct_tree(tree *graph)
+{
+    assert(graph != nullptr);
 
-void destructer_node(node *selected_node)
+    Stack stack = {};
+
+    stack_constructor(&stack);
+
+    push_stack(&stack, &graph->root_node);
+
+    while (stack.size != 0)
+    {
+        node *current_node = pop_stack(&stack);
+        
+        if (current_node->right_node != nullptr)  
+        {
+            push_stack(&stack, &(current_node->right_node));
+        }
+        
+        if (current_node->left_node != nullptr)
+        {
+            push_stack(&stack, &(current_node->left_node));
+        }
+        
+        destruct_node(current_node);
+
+    }
+
+}
+
+void destruct_node(node *selected_node)
 { 
     assert(selected_node != nullptr);
 

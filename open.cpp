@@ -1,6 +1,6 @@
 #include "akinator.h"
 
-FILE *open_file(const char *file_name, char *key)
+FILE *open_file(const char *file_name, const char *key)
 {
     assert(file_name != nullptr);
     
@@ -15,63 +15,67 @@ size_t get_file_size(FILE *file)
 {
     assert(file != nullptr);
 
-    size_t prev = ftell(file);
+    long int prev = ftell(file);
 
     fseek(file, 0L, SEEK_END);
     
-    size_t file_size = ftell(file);
+    long int file_size = ftell(file);
     
     fseek(file, prev, SEEK_SET);
 
-    return file_size;
+    return (size_t)file_size;
 }
 
 size_t read_file(const char *file_name, char **string)
 {
-    FILE *file = open_file(file_name, "rb");
+    assert(string != nullptr);
 
+    char key[] = "rb";
+
+    FILE *file = open_file(file_name, key);
+    
     return read_file(file, string);
 }
     
 size_t read_file(FILE *file, char **string)
 {
     assert(file != nullptr);
+    assert(string != nullptr);
 
     size_t file_size = get_file_size(file);
 
     *string = (char *)calloc((file_size + 1), sizeof(char));
+    
     assert(*string != nullptr);
 
     size_t count_elements = fread(*string, sizeof(char), file_size, file);
 
-    (*string)[count_elements] = '$';
-
     return file_size;
 }
 
-#define DEBUG_GRAPHVIZ(graph_file, tree)            \
-    getchar();                                                  \
-    write_tree_graphviz(graph_file, tree);                  \
-    system("dot -T png graph.dot > graph.png"); \
-    system("start graph.png");            \
 
-
-bool get_tree(tree *my_tree, char **string)
+void get_tree(const char* database_file_name, tree *my_tree)
 {
+    assert(database_file_name != nullptr);
+    assert(my_tree            != nullptr);
+
+    char *string = nullptr;
+
+    read_file(database_file_name, &string);
+        
     Stack stack = {};
     
     stack_constructor(&stack);
     
     bool is_root = true;
 
-    while ((*string = strchr(*string, '\"')) != nullptr)
+    while ((string = strchr(string, '\"')) != nullptr)
     {
         type_value_node value = "";
-        int count = 0;
         
-        sscanf(*string, " \"%[^\"]\" ", value);
+        sscanf(string, " \"%[^\"]\" ", value);
 
-        *string = strchr(++(*string), '\"') + 1;
+        string = strchr(++(string), '\"') + 1;
 
         node **new_node = nullptr;
                     
@@ -89,8 +93,10 @@ bool get_tree(tree *my_tree, char **string)
             if (characterist->left_node == nullptr && is_root == false)
             {
                 new_node = &(characterist->right_node);
+                
+                type_value_node DEFAULT_VALUE = "PUSTO, NULL, NO";
 
-                construct_node(new_node, "nothing");
+                construct_node(new_node, DEFAULT_VALUE);
 
                 new_node = &(characterist->left_node);
 
@@ -108,7 +114,7 @@ bool get_tree(tree *my_tree, char **string)
             }
         }
 
-        if (strchr(*string, '{') != nullptr && strchr(*string, '{') < strchr(*string, '}'))
+        if (strchr(string, '{') != nullptr && strchr(string, '{') < strchr(string, '}'))
         {            
             construct_node(new_node, value);
 

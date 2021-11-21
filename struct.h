@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 const int MAX_SIZE_CHARACTER = 20;
+
 typedef char type_value_node[MAX_SIZE_CHARACTER];
 
 struct node

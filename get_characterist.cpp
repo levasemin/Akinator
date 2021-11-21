@@ -1,40 +1,35 @@
 #include "akinator.h"
 
-bool find_object(type_value_node value, Stack *stack);
+bool find_object(char *value, Stack *stack);
 
-void get_characteristic(tree *my_tree, type_value_node value, tree *charactist_tree)
+bool try_get_characteristics(const char *database_file_name, tree *graph, Stack *object_characteristics, char *object)
 {
-    Stack stack = {};
+    get_tree(database_file_name, graph);
 
-    stack_constructor(&stack);
-    
-    push_stack(&stack, &my_tree->root_node);
+    bool found = false;
+ 
+    found = get_characteristic(graph, object, object_characteristics);
 
-    find_object(value, &stack);
-    
-    constuct_tree(charactist_tree);
-    
-    node *current_node = charactist_tree->root_node;
-    
-    for (size_t i = 0; i < stack.size; ++i)
-    {
-        node *current_charact = *(stack_type *)(stack.data + sizeof(stack.stack_canary) + sizeof(stack_type) * i);
-        
-        construct_node(&current_node, current_charact->value);
-
-        current_node = current_node->left_node;
-    }
+    return found;
 }
 
-bool find_object(type_value_node value, Stack *stack)
+bool get_characteristic(tree *graph, char *value, Stack *characteristic_stack)
+{    
+    push_stack(characteristic_stack, &graph->root_node);
+
+    bool found = false;
+    
+    found = find_object(value, characteristic_stack);
+
+    return found;
+}
+
+bool find_object(char *value, Stack *characteristic_stack)
 {   
-    node *current_node = top_stack(stack);
+    node *current_node = top_stack(characteristic_stack);
 
     if (strcmp(current_node->value, value) == 0)
-    {
-        push_stack(stack, &current_node);
-        push_stack(stack, &(current_node->left_node));
-
+    {                
         return true;
     }
 
@@ -42,27 +37,50 @@ bool find_object(type_value_node value, Stack *stack)
 
     if (current_node->right_node != nullptr)
     {
-        push_stack(stack, &(current_node->left_node));
+        push_stack(characteristic_stack, &(current_node->right_node));
         
-        bool found = find_object(value, stack);
+        found = find_object(value, characteristic_stack);
         
         if (found == false)
         {
-            pop_stack(stack);
+            pop_stack(characteristic_stack);
+        }
+
+        else
+        {
+            return true;
         }
     }
 
     if (current_node->left_node != nullptr)
     {
-        push_stack(stack, &current_node->right_node);
+        push_stack(characteristic_stack, &current_node->left_node);
         
-        bool found = find_object(value, stack);
+        found = find_object(value, characteristic_stack);
 
         if (found == false)
         {
-            pop_stack(stack);
+            pop_stack(characteristic_stack);
+        }
+
+        else
+        {
+            return true;
         }
     }
 
     return found;
+}
+
+void print_found(bool found, char *object)
+{
+    if (found)
+    {
+        printf("Object: %s was found\n", object);
+    }
+
+    else
+    {
+        printf("Object: %s was not found\n", object);
+    }
 }

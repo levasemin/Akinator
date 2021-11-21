@@ -3,15 +3,31 @@
 #include <stdlib.h>
 #include "stack.h"
 
-void constuct_tree(tree *tree);
+#define DEBUG_GRAPHVIZ(graph_file, tree)                        \
+    getchar();                                                  \
+    write_tree_graphviz(graph_file, tree);                      \
+    system("dot -T png graph.dot > graph.png");                 \
+    system("start graph.png");                                  \
 
-bool play_mode(const char* save_file_name, tree *my_tree);
+extern type_value_node DEFAULT_VALUE;
 
-bool construct_node(node **new_node, type_value_node value);
+void construct_tree(tree *tree);
 
-void get_characteristic(tree *my_tree, type_value_node value, tree *charactist_tree);
+bool construct_node(node **new_node, char *value);
 
-FILE *open_file(const char *file_name, char *key);
+void destruct_tree(tree *graph);
+
+bool destruct_node(node **new_node);
+
+bool play_mode(tree *graph);
+
+
+bool try_get_characteristics(const char *database_file_name, tree *graph, Stack *characteristics_object, char *object);
+
+bool get_characteristic(tree *graph, char *value, Stack *stack);
+
+
+FILE *open_file(const char *file_name, const char *key);
 
 size_t get_file_size(FILE *file);
 
@@ -27,8 +43,6 @@ void write_tree(FILE *file, tree *graph);
 
 void write_tree(FILE *file, node *current_node);
 
-void write_node(char *file_name, node *current_node);
-
 void write_node(FILE *file, node *current_node);
 
 
@@ -36,18 +50,24 @@ void write_tree_graphviz(const char *name_file, tree *graph);
 
 void write_tree_graphviz(FILE *file, tree *graph);
 
-void write_node_graphviz(const char *name_file, node *current_node);
-
 void write_node_graphviz(FILE *file, node *current_node);
 
 
-bool get_tree(tree *my_tree, char **string);
+void fill_object_graphviz(const char *file_name, Stack *stack, char *color);
+
+void fill_object_graphviz(FILE *file, Stack *stack, char *color);
+
+
+void get_tree(const char* database_file_name, tree *graph);
 
 void print_nodes(node *my_node);
 
-void add_charactist(tree *my_tree, node **current_node, type_value_node characterist, type_value_node object);
 
+void fill_characterist_create_png(const char* graph_file_name, const char *png_file_name, Stack* characteristics_object, char *color);
 
 void create_png(const char *graph_file_name, const char* png_file_name);
 
 void create_png(FILE *graph_file, FILE *png_file);
+
+
+void print_found(bool found, char *object);

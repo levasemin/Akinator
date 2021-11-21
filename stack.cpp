@@ -1,6 +1,6 @@
 #include "stack.h"
 //file name for dump error
-const char* DUMP_FILE_NAME = "log/log.txt";
+const char* DUMP_FILE_NAME = "log.txt";
 
 #ifdef STACK_DEBUG
 
@@ -292,7 +292,7 @@ void dump(Stack *stack, const char* error_file_name, const char* error_func_name
 
         for (size_t i = stack->size; i < stack->capacity; ++i)
         {
-            fprintf(file, "[%Ilu] element: %d\n", i, *(stack_type *)(stack->data + stack_canary_size + i * sizeof(stack_type)));
+            fprintf(file, "[%Ilu] element: %Ilu\n", i, (size_t)*(stack_type *)(stack->data + stack_canary_size + i * sizeof(stack_type)));
         }
         fprintf(file, "-------------------------------------------------------------------------------\n\n\n\n");
     }

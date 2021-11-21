@@ -1,17 +1,22 @@
 {
-"Is humanities?"
-	{"Not Lukashov"}
+	"Is humanities?"
 	{
-	"Calculus teacher?"
-		{
-		"He loves cat"
-			{"DED"}
+		"Is writer?"
+			{"Pushkin"}
+			{"not genius"
+				{"misha"}
+				{"Beethoven"}
+			}
+	}
+	{
+		"Calculus teacher?"
 			{"Lukashow"}
-		}
-		{
-		"He shocks?"
-			{"Dashkow"}
-			{"Bogdanow"}
-		}
+			{"He shocks?"
+				{"Dashkow"}
+				{"want sleep"
+					{"Stas"}
+					{"Bogdanow"}
+				}
+			}
 	}
 }
