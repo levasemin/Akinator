@@ -1,5 +1,4 @@
 Game "Akinator"
-
 =================
 
 Game for guessing objects by asking questions (object's characteristics) and adding new objects with its characteristic for making difference between expected and real. 
